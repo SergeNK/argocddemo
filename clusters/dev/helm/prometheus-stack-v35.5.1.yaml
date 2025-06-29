@@ -80,4 +80,6 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true # create destination namespace if not present
-      - ServerSideApply=true
+      - ServerSideApply=true          # client-side apply avoided globally
+      - SkipDryRunOnMissingResource=true  # handles CRDs not yet registered
+      - Replace=true                  # fallback for oversized CRDs
